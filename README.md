@@ -1,6 +1,7 @@
 # ТЗ
 
 ##### стек:
+
 react 18, typescript, react-query, axios, antd v4
 
 api: https://pokeapi.co/docs/v2#info
@@ -11,22 +12,23 @@ api: https://pokeapi.co/docs/v2#info
 
 https://pokeapi.co/api/v2/pokemon/{id or name}/
 колонки:
-* Имя (name),
-* стандартный (тут рендерить неизменяемый чекбокс, поле is_default),
-* вес (weight),
-* вид (species.name)
+
+- Имя (name),
+- стандартный (тут рендерить неизменяемый чекбокс, поле is_default),
+- вес (weight),
+- вид (species.name)
 
 Каждую строку можно развернуть. при разворачивании дергается запрос https://pokeapi.co/api/v2/pokemon-species/{id or name}/ ,
 внутри развернутой строки рисуется форма с задизейбленными полями (инпуты), отображающая поля
-* name,
-* color.name,
-* shape.name,
-* generation.name
+
+- name,
+- color.name,
+- shape.name,
+- generation.name
 
 можно и приветствуется добавление других полей (например дат, селектов, чего угодно) если будет оставаться время и желание
 
 все должно быть строго типизированно. где-нибудь развернуть это (на твое усмотрение)
-
 
 # Процесс:
 
