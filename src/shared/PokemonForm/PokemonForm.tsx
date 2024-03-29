@@ -3,7 +3,6 @@ import React from "react";
 import style from './style.module.css'
 import {usePokemonsDescription} from "../api/getPokemonList.ts";
 import {PokemonDescription} from "../interfaces/pokemonDescription.ts";
-import Panel from "antd/es/cascader/Panel";
 
 interface PokemonFormProps {
     img: string | null;
