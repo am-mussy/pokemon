@@ -53,6 +53,9 @@ https://github.com/PokeAPI/pokeapi/issues/143
 
 Там посоветовали использовать /pokemon-species/?limit=0, что я и сделал
 
+В API вид (species.name) совпадал с Имя (name) заменил столбец на Опыт (base_experience)
+
+Для стобца Тип, взял массив Типов урона/способностей(?) покемона из массива types
 
 ## Что можно было бы улучшить:
 
