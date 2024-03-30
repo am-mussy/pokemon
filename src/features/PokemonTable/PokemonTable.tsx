@@ -188,11 +188,11 @@ const MainPokemonTable: FC = () => {
       filterIcon: (filtered: boolean) => (
         <SearchOutlined style={{ color: filtered ? "#1677ff" : undefined }} />
       ),
-      onFilter: (value, record) =>
-        record[dataIndex]
-          .toString()
+      onFilter: (value, record) => {
+        return record[dataIndex]!.toString()
           .toLowerCase()
-          .includes((value as string).toLowerCase()),
+          .includes((value as string).toLowerCase());
+      },
       onFilterDropdownOpenChange: (visible) => {
         if (visible) {
           setTimeout(() => searchInput.current?.select(), 100);
