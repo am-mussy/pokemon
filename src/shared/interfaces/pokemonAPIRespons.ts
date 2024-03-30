@@ -19,12 +19,24 @@ type Sprites = {
   front_default: string | null;
 };
 
+export type PokemonType = {
+  name: string;
+  url: string;
+};
+
+export type PokemonTypes = {
+  slot: number;
+  type: PokemonType;
+};
+
 export interface PokemonMainInfo {
   name: string;
   is_default: boolean;
   weight: number;
   species: Species;
   sprites: Sprites;
+  types: PokemonTypes[];
+  base_experience: number;
 }
 
 type PokemonColor = {

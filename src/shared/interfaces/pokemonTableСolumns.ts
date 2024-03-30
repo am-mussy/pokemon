@@ -5,4 +5,6 @@ export interface PokemonTable {
   weight: number;
   species: string;
   img: string | null;
+  types: string[];
+  exp: number;
 }
