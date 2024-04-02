@@ -2,7 +2,7 @@
 
 ##### стек:
 
-react 18, typescript, react-query, axios, antd v4
+react 18, typescript, react-query, axios, antd v5
 
 api: https://pokeapi.co/docs/v2#info
 
