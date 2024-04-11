@@ -2,7 +2,7 @@
 
 ##### стек:
 
-react 18, typescript, react-query, axios, antd v4
+react 18, typescript, react-query, axios, antd v5
 
 api: https://pokeapi.co/docs/v2#info
 
@@ -52,6 +52,14 @@ https://pokeapi.co/api/v2/pokemon/
 https://github.com/PokeAPI/pokeapi/issues/143
 
 Там посоветовали использовать /pokemon-species/?limit=0, что я и сделал
+
+В API вид (species.name) совпадал с Имя (name) заменил столбец на Опыт (base_experience)
+
+Для стобца Тип, взял массив Типов урона/способностей(?) покемона из массива types
+
+При проблемах с запросом, вывожу модалку:
+
+![image](https://github.com/am-mussy/pokemon/assets/57048090/448fdc5a-eada-423a-bf8f-c6500ea6712a)
 
 
 ## Что можно было бы улучшить:
