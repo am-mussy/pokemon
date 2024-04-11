@@ -5,7 +5,7 @@ import {
   PokemonDescriptionResponse,
   PokemonListResponse,
   PokemonMainInfo,
-} from "../interfaces/pokemonAPIRespons.ts";
+} from "../types/pokemonAPIRespons.ts";
 
 // Запрашиваем общее количество покемонов, для пагинации
 const fetchPokemonsList = async (): Promise<PokemonListResponse> => {

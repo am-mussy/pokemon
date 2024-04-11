@@ -1,14 +1,14 @@
-export interface PokemonListResponse {
+export type PokemonListResponse = {
   count: number;
   next: string | null;
   previous: string | null;
   results: PokemonResult[];
-}
+};
 
-interface PokemonResult {
+type PokemonResult = {
   name: string;
   url: string;
-}
+};
 
 type Species = {
   name: string;
@@ -29,7 +29,7 @@ export type PokemonTypes = {
   type: PokemonType;
 };
 
-export interface PokemonMainInfo {
+export type PokemonMainInfo = {
   name: string;
   is_default: boolean;
   weight: number;
@@ -37,7 +37,7 @@ export interface PokemonMainInfo {
   sprites: Sprites;
   types: PokemonTypes[];
   base_experience: number;
-}
+};
 
 type PokemonColor = {
   name: string;
@@ -54,9 +54,9 @@ type PokemonGeneration = {
   url: string;
 };
 
-export interface PokemonDescriptionResponse {
+export type PokemonDescriptionResponse = {
   name: string;
   color: PokemonColor | null;
   shape: PokemonShape | null;
   generation: PokemonGeneration | null;
-}
+};

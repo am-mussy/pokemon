@@ -1,4 +1,4 @@
-export interface PokemonTable {
+export type PokemonTable = {
   key: string | number;
   name: string;
   is_default: boolean;
@@ -7,4 +7,11 @@ export interface PokemonTable {
   img: string | null;
   types: string[];
   exp: number;
-}
+};
+
+export type DataIndex = keyof PokemonTable;
+
+export type AllPokemonTypes = {
+  value: string;
+  text: string;
+};

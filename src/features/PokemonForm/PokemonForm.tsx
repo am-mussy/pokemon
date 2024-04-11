@@ -13,8 +13,8 @@ import {
 } from "antd";
 import React from "react";
 import style from "./style.module.css";
-import { usePokemonsDescription } from "../api/pokemonQueries.ts";
-import { PokemonDescription } from "../interfaces/pokemonDescription.ts";
+import { usePokemonsDescription } from "../../shared/api/pokemonQueries.ts";
+import { PokemonDescription } from "../../shared/types/pokemonDescription.ts";
 import { InfoCircleOutlined } from "@ant-design/icons";
 
 const { Paragraph } = Typography;
@@ -81,10 +81,6 @@ export const PokemonForm: React.FC<PokemonFormProps> = (props) => {
     },
   ];
 
-  const onChange = (key: string | string[]) => {
-    console.log(key);
-  };
-
   return (
     <div className={style.root}>
       <div className={style.header}>
@@ -124,12 +120,7 @@ export const PokemonForm: React.FC<PokemonFormProps> = (props) => {
         </label>
 
         <div className={style.tooltipWrapper}>
-          <Collapse
-            className={style.collapse}
-            size={"small"}
-            items={items}
-            onChange={onChange}
-          />
+          <Collapse className={style.collapse} size={"small"} items={items} />
           <Tooltip
             title={
               <div>

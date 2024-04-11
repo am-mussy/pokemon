@@ -2,11 +2,7 @@ import "./App.css";
 import PokemonTable from "../features/PokemonTable/PokemonTable.tsx";
 
 function App() {
-  return (
-    <div>
-      <PokemonTable />
-    </div>
-  );
+  return <PokemonTable />;
 }
 
 export default App;

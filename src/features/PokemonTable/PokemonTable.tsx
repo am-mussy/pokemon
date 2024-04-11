@@ -1,46 +1,38 @@
 import { FC, useEffect, useRef, useState } from "react";
 import {
   Button,
-  Checkbox,
   GetProp,
   Input,
   InputRef,
   Space,
   Table,
-  TableColumnsType,
   TableColumnType,
   TableProps,
-  Tag,
-  Typography,
 } from "antd";
-import { PokemonTable } from "../../shared/interfaces/pokemonTableСolumns.ts";
+import {
+  AllPokemonTypes,
+  DataIndex,
+  PokemonTable,
+} from "../../shared/types/pokemonTableСolumns.ts";
 import {
   usePokemons,
   usePokemonsList,
 } from "../../shared/api/pokemonQueries.ts";
-import { PokemonForm } from "../../shared/PokemonForm/PokemonForm.tsx";
+import { PokemonForm } from "../PokemonForm/PokemonForm.tsx";
 import {
   PokemonMainInfo,
   PokemonTypes,
-} from "../../shared/interfaces/pokemonAPIRespons.ts";
-import { getRandomColor } from "../../shared/randomColor/randomColor.ts";
+} from "../../shared/types/pokemonAPIRespons.ts";
 import { FilterDropdownProps } from "antd/es/table/interface";
 import { SearchOutlined } from "@ant-design/icons";
 import Highlighter from "react-highlight-words";
 import ModalError from "../../shared/modal/modalError/ModalError.tsx";
-const { Text } = Typography;
+import { getColumns } from "./tableColumns.tsx";
 
 type TablePaginationConfig = Exclude<
   GetProp<TableProps, "pagination">,
   boolean
 >;
-
-type DataIndex = keyof PokemonTable;
-
-type AllPokemonTypes = {
-  value: string;
-  text: string;
-};
 
 const MainPokemonTable: FC = () => {
   const {
@@ -212,65 +204,7 @@ const MainPokemonTable: FC = () => {
     };
   };
 
-  const columns: TableColumnsType<PokemonTable> = [
-    {
-      title: "Имя",
-      dataIndex: "name",
-      key: "name",
-      align: "center",
-      width: "10%",
-      ...getColumnSearchProps("name"),
-    },
-    {
-      title: "Стандартный",
-      dataIndex: "is_default",
-      align: "center",
-      width: "5%",
-      render: (is_default) => <Checkbox checked={is_default} disabled />,
-    },
-    {
-      title: "Вес",
-      dataIndex: "weight",
-      key: "weight",
-      align: "center",
-      width: "20%",
-      render: (weight) => <Text keyboard>{weight}</Text>,
-      sorter: (a, b) => a.weight - b.weight,
-    },
-    {
-      title: "Опыт",
-      dataIndex: "exp",
-      key: "exp",
-      align: "center",
-      width: "20%",
-      render: (exp) => <Text keyboard>{exp}</Text>,
-      sorter: (a, b) => a.exp - b.exp,
-    },
-    {
-      title: "Тип",
-      key: "types",
-      dataIndex: "types",
-      filterSearch: true,
-      filters: [...allPokemonTypes],
-      onFilter: (value, record) => {
-        return record.types.some(
-          (el) => el.toUpperCase() === String(value).toUpperCase(),
-        );
-      },
-      render: (_, { types }) => (
-        <>
-          {types.map((type: string) => {
-            return (
-              <Tag color={getRandomColor()} key={type}>
-                {type.toUpperCase()}
-              </Tag>
-            );
-          })}
-        </>
-      ),
-    },
-    Table.EXPAND_COLUMN,
-  ];
+  const columns = getColumns(getColumnSearchProps, allPokemonTypes);
 
   if (isPokemonListError || isPokemonMainInfoError) {
     return <ModalError />;
